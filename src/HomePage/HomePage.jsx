@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { Carousel } from 'react-responsive-carousel';
+
 import { userActions } from '../_actions';
 
 class HomePage extends React.Component {
@@ -14,8 +16,12 @@ class HomePage extends React.Component {
     }
 
     render() {
+
         const { user, users } = this.props;
+        const baseUrl = "http:"
         return (
+            <Carousel>
+
             <div className="col-md-6 col-md-offset-3">
                 <h1>Hi {user.firstName}!</h1>
                 <p>You're logged in with React!!</p>
@@ -40,6 +46,8 @@ class HomePage extends React.Component {
                     <Link to="/login">Logout</Link>
                 </p>
             </div>
+
+            </Carousel>
         );
     }
 }
